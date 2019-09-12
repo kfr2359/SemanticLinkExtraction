@@ -112,3 +112,4 @@ ruwiki*
 *.fuse_hidden*
 *.db
 
+docs/.~lock*
