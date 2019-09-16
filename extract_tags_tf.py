@@ -85,7 +85,7 @@ if __name__ == '__main__':
     
     db_cursor.execute('drop table if exists tags_entries_wiki')
     db_conn.commit()
-    db_cursor.execute('create table tags_entries_wiki (id_entry integer, id_wiki integer, tf real, tf_idf real)')
+    db_cursor.execute('create table tags_entries_wiki (id_entry integer, id_wiki integer, tf real)')
 
     db_cursor.execute('select * from entries_norm')
     entries_norm = db_cursor.fetchall()
@@ -93,7 +93,7 @@ if __name__ == '__main__':
     wiki_titles_raw = db_cursor.fetchmany(500000)
     while len(wiki_titles_raw) > 0:
         wiki_titles = KeywordProcessor(case_sensitive=True)
-        wiki_titles.non_word_boundaries = set('абвгдежзийклмнопрстуфхцчшщъыьэуя' + string.digits)
+        wiki_titles.non_word_boundaries = set('абвгдежзийклмнопрстуфхцчшщъыьэуя' + string.digits + string.ascii_lowercase)
         for id_wiki, _, title_norm in wiki_titles_raw:
             wiki_titles.add_keyword(title_norm, id_wiki)
 
@@ -111,7 +111,7 @@ if __name__ == '__main__':
                 continue
             for id_wiki in list_id_wiki:
                 tf = calc_tf(list_id_wiki, id_wiki)
-                db_ins_cursor.execute('insert into tags_entries_wiki values(?,?,?,?)', (id_entry, id_wiki, tf, 0.0))
+                db_ins_cursor.execute('insert into tags_entries_wiki values(?,?,?)', (id_entry, id_wiki, tf))
         db_conn.commit()
 
         wiki_titles_raw = db_cursor.fetchmany(500000)

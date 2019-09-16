@@ -135,8 +135,14 @@ if __name__ == '__main__':
     db_conn.commit()
     db_cursor.execute('CREATE TABLE IF NOT EXISTS entries (id integer PRIMARY KEY, msc integer, title text, GRNTI text, contents_entries text, lang text)')
     db_conn.commit()
-    db_cursor.execute('SELECT * from `raw_data`')
-    store = db_cursor.fetchall()
+
+    with open('cyberleninka.json', 'r') as fin:
+        input_texts = json.load(fin)
+    for i, item in enumerate(input_texts):
+        db_cursor.execute('INSERT INTO entries VALUES(?,?,?,?,?,?)', (i, 0, item.get('title', ''), '\n'.join(item.get('keywords', [])), item.get('abstract', ''), 'russian'))
+
+    # db_cursor.execute('SELECT * from `raw_data`')
+    # store = db_cursor.fetchall()
     
-    extract_info(store, db_cursor)
+    # extract_info(store, db_cursor)
     db_conn.commit()
