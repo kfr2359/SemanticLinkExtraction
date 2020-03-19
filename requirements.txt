@@ -1,3 +1,9 @@
+numpy
 aiohttp
+lda
+nltk
+toolz
 parse
 requests
+scipy
+sklearn
