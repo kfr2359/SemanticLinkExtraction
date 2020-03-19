@@ -1,7 +1,6 @@
-import sqlite3
-import math
 import concurrent.futures as cf
-from collections import Counter
+import math
+import sqlite3
 
 
 def build_inverse_index(list_tuples: list) -> dict:

@@ -1,8 +1,8 @@
-import requests
 import re
-import json
-from parse import compile
 import sqlite3
+
+import requests
+from parse import compile
 
 db_conn = sqlite3.connect('data.db')
 db_cursor = db_conn.cursor()

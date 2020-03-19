@@ -1,7 +1,9 @@
+import asyncio
 import json
 import sqlite3
+from typing import Tuple, Any
+
 import aiohttp
-import asyncio
 
 # menkeev
 # KEY = 'trnsl.1.1.20190908T130258Z.9d6fbc747c6a5f10.72976d74dc56e00bb859db9b960543cf80b79571'
@@ -26,7 +28,7 @@ async def translate(input: str, session: aiohttp.ClientSession) -> str:
         return result['text'][0]
 
 
-async def bound_fetch(sem, id, input, session) -> str:
+async def bound_fetch(sem, id, input, session) -> Tuple[str, Any]:
     async with sem:
         return await translate(input, session), id
 

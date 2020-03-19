@@ -1,9 +1,8 @@
-import json
 import string
-import pymorphy2
 import sqlite3
-import concurrent.futures as cf
+import string
 
+import pymorphy2
 
 stop_words_path = 'stop_words.txt'
 

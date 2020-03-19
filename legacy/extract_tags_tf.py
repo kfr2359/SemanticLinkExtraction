@@ -1,11 +1,14 @@
-import json
-import string
 import pymorphy2
 import sqlite3
 import string
 import concurrent.futures as cf
 from flashtext import KeywordProcessor
+import concurrent.futures as cf
+import sqlite3
+import string
 
+import pymorphy2
+from flashtext import KeywordProcessor
 
 stop_words_path = 'stop_words.txt'
 

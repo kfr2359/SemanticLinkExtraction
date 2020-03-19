@@ -1,4 +1,3 @@
-import statistics
 import json
 import sqlite3
 

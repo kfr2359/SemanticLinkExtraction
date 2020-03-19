@@ -1,6 +1,7 @@
-import requests
 import os
 from concurrent.futures import ThreadPoolExecutor as PoolExecutor
+
+import requests
 
 listIdsFilename = '/home/kfr2359/msufldr/specsem 11 term/pub_id_msc.txt'
 descrURLBase = 'http://e-heritage.ru/ras/view/publication/general.xml?id='

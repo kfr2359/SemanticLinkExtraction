@@ -1,8 +1,6 @@
-import xml.etree.ElementTree as ET
 import json
 import sqlite3
-import string
-
+import xml.etree.ElementTree as ET
 
 ns = {
     'isp': 'http://umeta.ru/namespaces/platform/ixsp',

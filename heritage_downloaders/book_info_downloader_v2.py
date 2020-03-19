@@ -1,9 +1,9 @@
-import json
-import requests
+import multiprocessing as mp
 import sqlite3
 import time
-import multiprocessing as mp
 import xml.etree.ElementTree as ET
+
+import requests
 from parse import compile
 
 ns = {
