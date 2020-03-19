@@ -15,7 +15,7 @@ start_url = '/unicollections/list.html?id=42033753'
 list_pages_re = r'list.html\?start=[\d]+&amp;count=[\d]+&amp;id=[\d]+'
 list_re = r'/unicollections/list.html\?id=[\d]+'
 pub_re = r'/ras/view/publication/general.html\?id=[\d]+'
-queue_passed_lists = set([start_url])
+queue_passed_lists = {start_url}
 queue_lists = [start_url]
 queue_pubs = []
 
