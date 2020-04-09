@@ -1,4 +1,6 @@
-aiohttp
 lda
+aiohttp
+gensim
+numpy
 parse
 requests

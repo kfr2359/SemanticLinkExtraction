@@ -10,6 +10,7 @@ contentsURLBase = 'http://books.e-heritage.ru/Book/Book/getCt/15'
 book_contents_path_str = 'book_contents/{}.xml'
 book_description_path_str = 'book_description/{}.rdf'
 
+
 def get_id_msc_pairs():
     idMSCpairs = {}
     with open(listIdsFilename, "r") as fListIds:
@@ -59,5 +60,3 @@ if __name__ == '__main__':
     id_msc_pairs = get_id_msc_pairs()
 
     download_book_info(id_msc_pairs)
-
-    
